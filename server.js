@@ -36,11 +36,15 @@ app.use(express.static("public"));
   // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
-console.log("My MONGO SCRAPER server is listening on: http://localhost:" + PORT);
+console.log("My MONGO SCRAPER server is listening on: http://localhost:" + PORT+"\n");
   });
   
 
 // Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
-
+mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on("error",console.error.bind(console,"db connection error: "));
+db.once("open", function() {
+  console.log("Connected to Mongoose, Yay!");
+});
 // Routes
