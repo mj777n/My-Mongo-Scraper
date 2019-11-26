@@ -13,23 +13,24 @@ var  ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  body: {
+  snip: {
     type: String,
     required: false
   },
-  // `note` is an object that stores a Note id
+  // `note` is an object that stores the Note id
   // The ref property links the ObjectId to the Note model
-  // This allows us to populate the Article with an associated Note
-  note: [{
+  // This allows to populate the Article with it's associated Note
+  notes: {
     type: Schema.Types.ObjectId,
     ref: "Note"
-  }],
+  },
   saved: {
     type: Boolean,
     default: false
-  }
+  },
+  article: String
 });
-  // This creates our model from the above schema, using mongoose's model method
+  // This creates the model from the above schema, using mongoose's model method
 var Article = mongoose.model("Article", ArticleSchema);
   // Export the Article model
 module.exports = Article;

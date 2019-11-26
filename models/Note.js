@@ -2,18 +2,18 @@ var mongoose = require("mongoose");
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 // Using the Schema constructor, create a new CommentSchema object
-var CommentSchema = new Schema({
+var NoteSchema = new Schema({
     // `title` is required and of type String
     name: {
       type: String,
     },
-    // `link` is required and of type String
+    // `body` is required and of type String
     body: {
       type: String,
       required: true
     }
   }); 
 // This creates the Comment model from the above schema, using mongoose's model method
-var Comment = mongoose.model("Comment", CommentSchema);
+var Note = mongoose.model("Note", NoteSchema);
 // Export the Comment model
-module.exports = Comment;
+module.exports = Note;

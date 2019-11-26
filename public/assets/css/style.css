@@ -1,0 +1,55 @@
+body {
+    background-color:lightgrey;
+  }
+/* Background "wallpaper for Jumbotron */
+/* Lettering is solid white */
+.jumbotron {
+  background-image: url("../images/paper_stack_image.jpg");
+  background-size: cover;
+  color: white;
+  font-style: solid;
+  font-weight: solid;
+  margin-bottom: 0px;
+}
+/* center align Header */
+#h1 {
+  text-align: center;
+  /* center align subtile */
+} 
+#subtitle {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: red;
+}
+a {
+  color: grey;
+}  
+a:hover {
+  text-decoration: none;
+  color: blue;
+} 
+#h1-saved {
+  padding-left: 20px;
+}
+.btn-blue:hover {
+  background: blue;
+}
+.btn-blue {
+  background: rgb(36, 169, 221);
+  color: white;
+}
+.btn-comment {
+  background: lightgreen;
+  color: black;
+}
+.btn-delete {
+  background: rgb(243, 108, 108);
+}
+.btn-delete:hover {
+  background: rgb(196, 4, 4);
+  color: white;
+/* Set tidth of model content box */
+}
+.model-content {
+  width: 80%;
+}

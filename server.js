@@ -2,16 +2,15 @@ var express = require("express"); //
 var logger = require("morgan"); //
 var mongoose = require("mongoose"); //
 var exphbs = require("express-handlebars"); //
-// var bodyParser = require("body-parser");
 
 var PORT = process.env.PORT || 3000;
 
-// Initialize Express
-let app = express();
-// var db = require("./models");
+  // Initialize Express
+var app = express();
+var db = require("./models");
 
-// require("./routes/apiRoutes")(app, db);
-// require("./routes/htmlRoutes")(app, db);
+  // Set up neccessary path to routes for var app
+require("./routes/routes")(app);
 
 app.use(logger("dev"));
 app.use(express.static("public"));
@@ -25,7 +24,7 @@ app.set("view engine", "handlebars");
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds127644.mlab.com:27644/heroku_n6c2rpls";
 
 // Connect to the Mongo DB
-   var MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/unit18Populater";
+   var MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/myMongoScraper";
    mongoose.Promise = Promise;
    mongoose.connect(MONGODB_URL, {useNewUrlParser: true });
    
