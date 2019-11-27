@@ -50,6 +50,11 @@ a:hover {
   color: white;
 /* Set tidth of model content box */
 }
-.model-content {
+.modal-box {
   width: 80%;
+  border: blue;
+  border-style: solid;
+  border-color: blue;
+  background:rgb(195, 238, 241);
 }
+  

@@ -24,7 +24,8 @@ app.set("view engine", "handlebars");
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds127644.mlab.com:27644/heroku_n6c2rpls";
 
 // Connect to the Mongo DB
-   var MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/myMongoScraper";
+  //  var MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/scraperDB";
+   var MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/myMongoSraper";
    mongoose.Promise = Promise;
    mongoose.connect(MONGODB_URL, {useNewUrlParser: true });
    
@@ -32,7 +33,8 @@ app.set("view engine", "handlebars");
    db.on("error",console.error.bind(console,"db connection error: "));
    db.once("open", function() {
      console.log("And is also connected to Mongoose, Yay!");
-   });
+     console.log('The Collection name is: "myMongoSraper"');
+    });
 
    app.listen(PORT, function() {
      console.log("\n"+"*******************************************");
