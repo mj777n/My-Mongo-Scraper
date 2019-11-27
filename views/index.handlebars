@@ -1,13 +1,13 @@
 <div id="display">
   {{#each articles}}
     <div class="card" id="scrapedArticles">
-      <div class="card-body">
+      <div class="card-body article-container">
         <a href="http://nytimes.com{{this.link}}" target="_blank">
           <h3 class="card-title">
             {{this.title}}</h3>
         </a>
         <p class="card-subtitle mb-2 text-muted">{{this.snip}}</p>
-        <button type="button" class="btn btn-blue saved" id="{{this._id}}">Save Article</button>
+        <button type="button" class="btn btn-blue btn-sm saved home-btn-save-article" id="{{this._id}}">Save Article</button>
       </div>
     </div>
   {{/each}}

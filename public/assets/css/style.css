@@ -13,16 +13,24 @@ body {
 }
 /* center align Header */
 #h1 {
-  text-align: center;
-  /* center align subtile */
+  text-align: center;  /* center align subtile */
+  font-family: 'Libre Baskerville', serif;  /* Google Fonts */
 } 
+.nav-title {
+  font-family: 'Libre Baskerville', serif;  /* Google Fonts */
+  color: black;
+  margin-bottom: 0px;
+}
 #subtitle {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
   color: red;
 }
+.article-container {
+  padding: 10px;
+}
 a {
-  color: grey;
+  color: black;
 }  
 a:hover {
   text-decoration: none;
