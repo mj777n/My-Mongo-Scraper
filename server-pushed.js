@@ -16,7 +16,7 @@ app.engine("handlebars", exphbs({ layout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds127644.mlab.com:27644/heroku_n6c2rpls";
+
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-temp1";
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-temp2";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
