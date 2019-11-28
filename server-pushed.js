@@ -8,6 +8,7 @@ var PORT = process.env.PORT || 3000;
 let app = express();
 var db = require("./models");
 
+
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -16,13 +17,15 @@ app.engine("handlebars", exphbs({ layout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-temp1";
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-temp2";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-
-require("./routes/routes.js")(app);
-
-app.listen(PORT, function () {
-    console.log("App running on port 3000!");
-});
+  // Connect to the Mongo DB
+  var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongo-scraperdb";
+  mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+  require("./routes/routes.js")(app);
+    
+  app.listen(PORT, function() {
+    console.log("\n"+"*********************************************");
+    console.log("The server is happily listening on port " + PORT);
+    console.log("And is also connected to Mongoose, Yay!");
+    console.log('The Collection name is: "mongo-scraperdb"');
+    console.log("*********************************************");
+  });

@@ -35,22 +35,25 @@ $( () => {
         // Click event to use PUT route with ID to save article clicked on
       $(document).on("click", ".saved", function () {
         let id = $(this).attr("id");
+        saveId = id;
+        console.log("saveId = "+saveId);
         $(this).parents(".card").remove();
         $.ajax({
           type: "PUT",
-          url: "/saved/" + id,
+          url: "/saved/" + saveId
         }).then((response) => {
-        // console.log(JSON.stringify(response));
+        console.log(JSON.stringify(response));
         });
       });
     });
        
       $(".saveNote").on("click", function () {
+      console.log(".saveNote was clicked");  
         let id = $(this).attr("id");
         console.log("This is the var id: "+id);
-        console.log("inside APP line 53");
         $.ajax({
-          url: "/notes",
+        //   url: "/notes/" + id,
+          url: "/notes/",      
           method: "POST",
           data: {
             body: $(".userNote").val().trim()
@@ -65,7 +68,8 @@ $( () => {
       // $(".saveNote").val("");
       });
     
-      $(".addNote").on("click", function () {
+      $(".addComment").on("click", function () {
+    // $(document).on("click", ".addcomment", function() {
       // $(".addNote").on("click", function () {
         // $(document).on("click", function () {   
       let id = $(this).attr('id');
@@ -78,7 +82,7 @@ $( () => {
       }).then(
           function (data) {
               console.log(data);
-              displayArticles(data);
+            //   displayArticles(data);
           });
       $(".savedNote").empty();
       });
@@ -89,13 +93,14 @@ $( () => {
         event.preventDefault();
         let id = $(this).attr('id');
         $.ajax({
-            url: "/delete-Article/" + id,
-            method: "DELETE",
-        }).then(
-            function (data) {
-                location.reload();
-            });
+          url: "/delete-Article/" + id,
+        //   method: "DELETE",
+          method: "DELETE"
+        })
+        .then(function (data) {
+          location.reload();
         });
+      });
     // Is this "delete" being used??
       // $(".deleteArticle").on("click", function () {
       //   let id = $(this).attr("id");

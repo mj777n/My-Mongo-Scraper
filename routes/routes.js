@@ -14,15 +14,22 @@ module.exports = function (app) {
         result.snip = $(element).find("p").text();
           // Create a new Article using the `result` object built from scraping     
         db.Article.create(result)
-          .then(dbArticle => {
+          // .then(dbArticle => {
+          .then(function(dbArticle) {
             console.log(dbArticle)
-        })  // cose .then
-          .catch(err => {
+            //  location.reload();           
+          }) 
+          .then(function(data) {
+            console.log("Scrape completed");
+            console.log('---> app.GET: route "/scrape" Scrape articles from website');   
+          })  // cose .then
+          // .catch(err => {
+          .catch(function(err) {
             console.log(err);
-        }); // close .catch               
-      }); // close .each
+          }); // close .catch               
+      } ); // close .each
       res.send("The SCRAPE was successful")       
-    })  // close AXIOS.GET
+    }); // close AXIOS.GET
   }); // close "scrape"
 
     // GOT IT
@@ -32,7 +39,7 @@ module.exports = function (app) {
         articles: data
       };
       res.render("index", hbsObject);
-      console.log('\n'+'---> app.GET: route "/" Articles displayed')   
+      console.log('\n'+'---> app.GET: route "/" Renders all articles to the home page')   
     })
   });
 // GOT IT
@@ -64,7 +71,7 @@ module.exports = function (app) {
       let hbsObject = {
         articles: data
       };
-      console.log('\n'+'---> app.GET:route "/saved" renders saved articles');
+      console.log('\n'+'---> app.GET: route "/saved" Renders saved articles to the screen');
       res.render("saved", hbsObject);
     });
   });
@@ -88,7 +95,7 @@ module.exports = function (app) {
       //  console.log("req.params.id= ");    
     }).then(function (data) {
       res.json(data);
-      console.log('\n'+'---> app.PUT: route "/saved/:id": Just saved this article titled: '+data.title)
+      console.log('\n'+'---> app.PUT: route "/saved/:id" Just saved this article titled: '+data.title)
       console.log("Article ID = "+data._id);
       // console.log("req.params.id = "+rep.params.id);
     });
@@ -96,16 +103,21 @@ module.exports = function (app) {
 
     // Create a new note
     // GOT IT
-  app.post("/notes", function (req, res) {
-    console.log(req.body);
+    // app.post("/notes/:id", function (req, res) {
+app.post("/notes/", function (req, res) {   
+    console.log(req.body.body );
+    var savedNoteId = req.body.body;
+    // var req_params = 
+    // console.log("var savedNoteId = "+savedNoteId);
     db.Note.create(req.body)
+    // console.log(req.body)
     .then(function (dbComment) {
       return db.Article.findOneAndUpdate({_id: req.params.id},
       {$push: {comment: dbComment._id }}, {new: true});          
     })
     .then(function (dbArticle) {
       res.json(dbArticle);              
-      console.log('app.POST "/notes": Saved note for article: '); 
+      console.log('\n'+'---> app.POST: route "/notes" Saved note for article: '); 
     })
     .catch(function (err) {
       res.json(err);
@@ -119,7 +131,7 @@ module.exports = function (app) {
     .populate("comment")
     .then(function (dbArticle) {
       res.json(dbArticle);
-      console.log('app.GET "/articles/:id": Find article and populate note field with ID from req.params'); 
+      console.log('\n'+'---> app.GET: route "/articles/:id" Find the Saved Article and populate note field with ID from req.params'); 
     })
     .catch(function (err) {
       res.json(err);
@@ -132,7 +144,7 @@ module.exports = function (app) {
   app.get("/drop-collection", function (req, res) {
     db.Article.deleteMany({}, function (err, del) {
     });
-    console.log("\n"+"---> Collection deleted: Clear Articles clicked")
+    console.log('\n'+'---> app.GET: route "/drop-collection" Clear Articles button clicked'   );
     res.send("res.send statement in drop-collection get");
   });
     // Remove ("delete") a Saved article
@@ -143,8 +155,9 @@ module.exports = function (app) {
       $set: { saved: false }
     }).then(function (data) {
         res.json(data);
-    });
-    console.log("\n"+"---> A Saved Article was deleted: Delete clicked")
+    }); 
+    // console.log("\n"+"---> A Saved Article was deleted: Delete clicked"+"\n");
+    console.log('\n'+'---> app.DELETE: route "/delete-Article/:id" You just deleted a saved article'+'\n');
   });
 
   app.delete("/delete-comment/:id", function (req, res) {
