@@ -1,8 +1,8 @@
-let mongoose = require("mongoose");
+var mongoose = require("mongoose");
   // Save a reference to the Schema constructor
-let Schema = mongoose.Schema; 
+var Schema = mongoose.Schema; 
   // Using the Schema constructor, create a new UserSchema object
-let  ArticleSchema = new Schema({
+var  ArticleSchema = new Schema({
   // `title` is required and of type String
   title: { 
     type: String,
@@ -20,17 +20,18 @@ let  ArticleSchema = new Schema({
   // `note` is an object that stores the Note id
   // The ref property links the ObjectId to the Note model
   // This allows to populate the Article with it's associated Note
-  notes: {
+  note: {
     type: Schema.Types.ObjectId,
     ref: "Note"
   },
   saved: {
     type: Boolean,
     default: false
-  },
-  article: String
+  }
+  // },
+  // article: String
 });
   // This creates the model from the above schema, using mongoose's model method
-let Article = mongoose.model("Article", ArticleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
   // Export the Article model
 module.exports = Article;
