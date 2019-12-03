@@ -17,39 +17,32 @@
         </div>
       </div>
     {{/if}}
-    {{/each}}
+  {{/each}}
 
-      {{#each articles}}
-       {{!-- {{#if this.saved}} --}}
-      <div class="modal fade article" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-           <div class="modal-content modal-width modal-box">
-             <div class="modal-header">
-               <h5 class="modal-title"></h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
-             </div>
-
-             <div class="modal-body">
-               <div id="noteBox">
-                 <div class="row">
-               </div>  <!-- close noteBox -->
-                 <div class="savedUserNote">
-                    <textarea type="text" id="userNote" rows="4" cols="50" placeholder="New Comment"></textarea>
-                 </div>
-               {{!-- <textarea type="text" class="userNote" rows="4" cols="50" placeholder="New Comment"></textarea> --}}
-             </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
-              Close</button>
-       <button type="button" class="btn btn-primary btn-sm saveNote" id="{{this._id}}" data-dismiss="modal">
-       Save Comment</button>
+  {{#each articles}}
+    <div class="modal fade article" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content modal-width modal-box">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-       </div>
-    </div>
-  </div>
-     {{!-- {{/if}} --}}
-    {{/each}}
+
+          <div class="modal-body">
+            <div id="noteBox">
+              <div class="row"></div>
+            </div>  <!-- close noteBox -->
+            <div class="savedUserNote">
+              <textarea type="text" id="userNote" rows="4" cols="50" placeholder="Enter your comment"></textarea>
+            </div>
+          </div>  <!-- close modal-body -->
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div> 
+  {{/each}} 
 </div>
