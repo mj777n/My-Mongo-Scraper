@@ -145,7 +145,7 @@ module.exports = function (app) {
   app.get("/drop-collection", function (req, res) {
     db.Article.deleteMany({}, function (err, del) {
     });
-    console.log('\n'+'---> app.GET: route "/drop-collection" Clear Articles button clicked'   );
+    console.log('\n'+'---> app.GET: route "/drop-collection" Clear Articles button clicked');
   });
 
     // Remove ("delete") a Saved article by ID from user selected

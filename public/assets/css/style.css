@@ -65,4 +65,8 @@ a:hover {
   border-color: blue;
   background:rgb(195, 238, 241);
 }
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
   

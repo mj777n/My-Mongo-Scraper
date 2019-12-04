@@ -68,7 +68,7 @@ $(".addComment").on("click", function () {
     $(".modal-title").empty();
     $(".modal-footer").empty(); 
       // Add (append) The title of the article to the modal box
-    $(".modal-title").append("<h4>" + data.title + "</h3>");
+    $(".modal-title").append("<h5>" + data.title + "</h5>");
       // Check If there's already a note in the article
     if (data.note) { 
         // If so, place the body of the existing note in the body textarea
