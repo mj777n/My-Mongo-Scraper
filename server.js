@@ -24,7 +24,8 @@ app.set("view engine", "handlebars");
   mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
   require("./routes/routes.js")(app);
     
-  app.listen(PORT, function() {
+  app.listen(process.env.PORT || 3000, function() {  
+  // app.listen(PORT, function() {
     console.log("\n"+"*********************************************");
     console.log("The server is happily listening on port " + PORT);
     console.log("And is also connected to Mongoose, Yay!");
