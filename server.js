@@ -23,9 +23,9 @@ app.set("view engine", "handlebars");
  
     // Or connect via Heroku using mLabs addon. But this URI is not connecting.
     // Geting a bunch of "H10" error messages from Heroku Logs. Ughhhhh!!!
-    
-    // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_8j8v3k8b:RedSox15@ds251948.mlab.com:51948/heroku_8j8v3k8b";
-  var MONGODB_URI = "mongodb://heroku_8j8v3k8b:RedSox15@ds251948.mlab.com:51948/heroku_8j8v3k8b";
+
+    var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_8j8v3k8b:RedSox15@ds251948.mlab.com:51948/heroku_8j8v3k8b";
+  // var MONGODB_URI = "mongodb://heroku_8j8v3k8b:RedSox15@ds251948.mlab.com:51948/heroku_8j8v3k8b";
   mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
   require("./routes/routes.js")(app);
     
