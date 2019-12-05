@@ -87,6 +87,7 @@ The app is deployed on Heroku or can also be viewed on your local machine as wel
 ## Functionality
 
 ## ************************************************************* ##
-## Demo of App (using TinyTake) ##
+## Check out the Demo of "My Mongo Scraper" App (using TinyTake) ##
+
 [DEMO "MY MONGO DB SCRAPER"](https://ttprivatenew.s3.amazonaws.com/pulse/mjnorato-aol/attachments/12048943/Mongo_Scraper_App_Demo.mp4)
 
